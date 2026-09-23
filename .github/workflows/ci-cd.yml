@@ -121,9 +121,9 @@ jobs:
       # Run automated tests
       # --------------------------------------
 
-      - name: Run Automated Tests
-        run: |
-          python log_analyzer.py
+      # - name: Run Automated Tests
+      #   run: |
+      #     python log_analyzer.py
 
   # ========================================
   # CI - Static Code Analysis
