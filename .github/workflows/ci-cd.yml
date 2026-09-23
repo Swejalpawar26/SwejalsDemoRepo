@@ -61,41 +61,41 @@ jobs:
       # -------------------------------------------------
       # Setup Prometheus and Grafana using Docker Compose
       # -------------------------------------------------
-      - name: Set up Prometheus and Grafana using Docker Compose
-        run: |
-          docker compose -f docker-compose.yml up -d
+      # - name: Set up Prometheus and Grafana using Docker Compose
+      #   run: |
+      #     docker compose -f docker-compose.yml up -d
 
-      - name: Wait for Prometheus and Grafana to be ready
-        run: |
-          echo "Waiting for Prometheus and Grafana to be ready..."
-          sleep 20  # Adjust the sleep duration as needed
+      # - name: Wait for Prometheus and Grafana to be ready
+      #   run: |
+      #     echo "Waiting for Prometheus and Grafana to be ready..."
+      #     sleep 20  # Adjust the sleep duration as needed
       
-      - name: Show running Docker containers
-        run: |
-          docker ps
+      # - name: Show running Docker containers
+      #   run: |
+      #     docker ps
 
-      - name: Verify Prometheus and Grafana
-        shell: powershell
-        run: |
-          Write-Host "Verifying Prometheus and Grafana..."
+      # - name: Verify Prometheus and Grafana
+      #   shell: powershell
+      #   run: |
+      #     Write-Host "Verifying Prometheus and Grafana..."
 
-          try {
-              Invoke-WebRequest -Uri "http://localhost:9090/-/healthy" -UseBasicParsing -TimeoutSec 10
-              Write-Host "Prometheus is running successfully"
-          }
-          catch {
-              Write-Host "Prometheus is not running"
-              exit 1
-          }
+      #     try {
+      #         Invoke-WebRequest -Uri "http://localhost:9090/-/healthy" -UseBasicParsing -TimeoutSec 10
+      #         Write-Host "Prometheus is running successfully"
+      #     }
+      #     catch {
+      #         Write-Host "Prometheus is not running"
+      #         exit 1
+      #     }
 
-          try {
-              Invoke-WebRequest -Uri "http://localhost:3000/api/health" -UseBasicParsing -TimeoutSec 10
-              Write-Host "Grafana is running successfully"
-          }
-          catch {
-              Write-Host "Grafana is not running"
-              exit 1
-          }
+      #     try {
+      #         Invoke-WebRequest -Uri "http://localhost:3000/api/health" -UseBasicParsing -TimeoutSec 10
+      #         Write-Host "Grafana is running successfully"
+      #     }
+      #     catch {
+      #         Write-Host "Grafana is not running"
+      #         exit 1
+      #     }
 
       # --------------------------------------
       # Setup Python
